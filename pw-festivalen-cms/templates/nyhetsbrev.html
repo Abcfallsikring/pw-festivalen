@@ -118,12 +118,19 @@ footer a{color:var(--gold-light);text-decoration:none}
       </div>
       <div>
         <form id="subform">
-          <input id="subnavn" type="text" placeholder="Navn" required>
-          <input id="subepost" type="email" placeholder="E-postadresse" required>
-          <input id="subkorps" type="text" placeholder="Korps (valgfritt)">
+          <!-- Web3Forms: lim inn din egen Access Key under (hentes gratis på web3forms.com) -->
+          <input type="hidden" name="access_key" value="DIN_ACCESS_KEY_HER">
+          <input type="hidden" name="subject" value="Ny nyhetsbrev-abonnent – PW-festivalen">
+          <input type="hidden" name="from_name" value="PW-festivalen nettside">
+          <!-- Honeypot mot spam (skjult) -->
+          <input type="checkbox" name="botcheck" id="" style="display:none" tabindex="-1" autocomplete="off">
+          <input id="subnavn" name="navn" type="text" placeholder="Navn" required>
+          <input id="subepost" name="epost" type="email" placeholder="E-postadresse" required>
+          <input id="subkorps" name="korps" type="text" placeholder="Korps (valgfritt)">
           <button class="btn" type="submit" style="justify-content:center">Meld meg på →</button>
         </form>
         <div class="ok" id="subok">✓ Takk! Du er meldt på nyhetsbrevet.</div>
+        <div class="ok" id="suberr" style="display:none;background:#ffd9ab">Noe gikk galt – prøv igjen, eller send oss en e-post.</div>
       </div>
     </section>
 
@@ -196,14 +203,25 @@ const t=document.querySelector('.menu-toggle'),n=document.getElementById('mainna
 t.addEventListener('click',()=>{const o=n.classList.toggle('open');t.setAttribute('aria-expanded',o)});
 
 // Abonner-skjema (sender melding til arrangør via e-post; koble til e-posttjeneste for lagring)
-document.getElementById('subform').addEventListener('submit',e=>{
+document.getElementById('subform').addEventListener('submit',async e=>{
   e.preventDefault();
-  const navn=document.getElementById('subnavn').value;
-  const epost=document.getElementById('subepost').value;
-  const korps=document.getElementById('subkorps').value||'-';
-  document.getElementById('subok').style.display='block';
-  const body='Ny påmelding til nyhetsbrev:%0D%0ANavn: '+navn+'%0D%0AE-post: '+epost+'%0D%0AKorps: '+korps;
-  window.location.href='mailto:pw@tjodalyngskolekorps.no?subject='+encodeURIComponent('Ny nyhetsbrev-abonnent')+'&body='+body;
+  const form=e.target;
+  const btn=form.querySelector('button[type=submit]');
+  const ok=document.getElementById('subok'), err=document.getElementById('suberr');
+  ok.style.display='none'; err.style.display='none';
+  btn.disabled=true; const label=btn.textContent; btn.textContent='Sender ...';
+  try{
+    const data=Object.fromEntries(new FormData(form));
+    const res=await fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify(data)
+    });
+    const json=await res.json();
+    if(json.success){ ok.style.display='block'; form.reset(); }
+    else { err.style.display='block'; }
+  }catch(_){ err.style.display='block'; }
+  finally{ btn.disabled=false; btn.textContent=label; }
 });
 
 // ---- Nyhetsbrev-bygger ----
