@@ -1,0 +1,23 @@
+media: pw-festivalen-cms/images
+content:
+  - name: festival
+    label: Festivalinnstillinger
+    type: file
+    path: pw-festivalen-cms/data/site.json
+    format: json
+    fields:
+      - { name: year, label: "Festivalår (f.eks. 2027)", type: string }
+      - { name: dateDisplay, label: "Datoer – vises på siden (f.eks. 11.–13. juni 2027)", type: string }
+      - { name: dateStartISO, label: "Startdato (ÅÅÅÅ-MM-DD, for søk/Google)", type: string }
+      - { name: dateEndISO, label: "Sluttdato (ÅÅÅÅ-MM-DD, for søk/Google)", type: string }
+      - { name: deadlineDisplay, label: "Betalingsfrist – vises (f.eks. 1. april 2027)", type: string }
+      - { name: deadlineISO, label: "Betalingsfrist (ÅÅÅÅ-MM-DD)", type: string }
+      - { name: priceDeltaker, label: "Deltakeravgift – vises (f.eks. 1 650)", type: string }
+      - { name: priceDeltakerRaw, label: "Deltakeravgift – tall uten mellomrom (f.eks. 1650)", type: string }
+      - { name: priceKorps, label: "Korpsavgift – vises (f.eks. 2 500)", type: string }
+      - { name: day1, label: "Programdag 1 (f.eks. Fredag 11. juni)", type: string }
+      - { name: day2, label: "Programdag 2 (f.eks. Lørdag 12. juni)", type: string }
+      - { name: day3, label: "Programdag 3 (f.eks. Søndag 13. juni)", type: string }
+      - { name: heroLead, label: "Forside – ingress under tittelen", type: text }
+      - { name: thanksHeading, label: "Takk-seksjon – overskrift", type: string }
+      - { name: thanksText, label: "Takk-seksjon – tekst", type: text }
