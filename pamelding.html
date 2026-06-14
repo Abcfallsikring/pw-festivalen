@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Påmelding – PW-festivalen 2027 | Meld på skolekorpset</title>
-<meta name="description" content="Meld på korpset til PW-festivalen 2027, juniorkorpsfestival i Tjodalyng 11.–13. juni. Deltakeravgift kr 1650 per deltaker, korpsavgift kr 2500 per korps. Det er fortsatt plasser igjen!">
+<title>Påmelding – PW-festivalen 2026 | Meld på skolekorpset</title>
+<meta name="description" content="Meld på korpset til PW-festivalen 2026, juniorkorpsfestival i Tjodalyng 12.–14. juni. Deltakeravgift kr 1650 per deltaker, korpsavgift kr 2500 per korps. Det er fortsatt plasser igjen!">
 <link rel="canonical" href="https://pw-festivalen.no/pamelding">
 <meta name="theme-color" content="#fe2222">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="nb_NO">
-<meta property="og:title" content="Påmelding – PW-festivalen 2027">
-<meta property="og:description" content="Meld på skolekorpset til PW-festivalen 2027 i Tjodalyng, 11.–13. juni. Det er fortsatt plasser igjen.">
+<meta property="og:title" content="Påmelding – PW-festivalen 2026">
+<meta property="og:description" content="Meld på skolekorpset til PW-festivalen 2026 i Tjodalyng, 12.–14. juni. Det er fortsatt plasser igjen.">
 <meta property="og:url" content="https://pw-festivalen.no/pamelding">
 <link rel="icon" href="https://pw-festivalen.no/images/brand/icon/white/256.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -93,9 +93,9 @@ footer a{color:var(--gold-light);text-decoration:none}
 <div class="pagehead">
   <div class="wrap">
     <div class="crumbs"><a href="/">Hjem</a> · Påmelding</div>
-    <div class="eyebrow" style="color:var(--gold-light);margin-top:1rem">11.–13. juni 2027 · Tjodalyng</div>
+    <div class="eyebrow" style="color:var(--gold-light);margin-top:1rem">12.–14. juni 2026 · Tjodalyng</div>
     <h1>Påmelding</h1>
-    <p>Det er fortsatt plasser igjen til PW-festivalen 2027. Fyll ut skjemaet, så tar vi kontakt.</p>
+    <p>Det er fortsatt plasser igjen til PW-festivalen 2026. Fyll ut skjemaet, så tar vi kontakt.</p>
   </div>
 </div>
 
@@ -149,7 +149,7 @@ footer a{color:var(--gold-light);text-decoration:none}
           <textarea id="melding" name="melding" rows="4" placeholder="Allergier, antall busser, annet vi bør vite ..."></textarea>
         </div>
         <button class="btn" type="submit">Send påmelding →</button>
-        <p class="note">Når du sender, åpnes en ferdig utfylt e-post i e-postprogrammet ditt – adressert til <strong>pw@tjodalyngskolekorps.no</strong> med <strong>kopi (Cc) til din egen e-postadresse</strong>, slik at dere begge har påmeldingen. Trykk «send» i e-postprogrammet for å fullføre. Korpsavgiften på kr 2 500 må være betalt innen 1. april 2027 for at plassen skal være sikret.</p>
+        <p class="note">Påmeldingen blir sammenfattet i en e-post til <strong>pw@tjodalyngskolekorps.no</strong> som åpnes i ditt e-postprogram. Korpsavgiften på kr 2 500 må være betalt innen 1. april for at plassen skal være sikret.</p>
       </form>
     </div>
 
@@ -171,14 +171,14 @@ footer a{color:var(--gold-light);text-decoration:none}
         <div class="price">kr 2 500</div>
         <small>per korps, betales ved påmelding</small>
       </div>
-      <div class="deadline">⏰ Frist for innbetaling: 1. april 2027</div>
+      <div class="deadline">⏰ Frist for innbetaling: 1. april 2026</div>
     </aside>
   </div>
 </main>
 
 <footer>
   <div class="wrap">
-    <div>© 2027 Peter Wessel Festivalen · Arrangeres av Tjodalyng Skolekorps · Tjodalyng, Larvik</div>
+    <div>© 2026 Peter Wessel Festivalen · Arrangeres av Tjodalyng Skolekorps · Tjodalyng, Larvik</div>
     <div><a href="/informasjon">Informasjon</a> · <a href="/pamelding">Påmelding</a> · <a href="/nyhetsbrev">Nyhetsbrev</a> · <a href="https://www.facebook.com/PWfestivalen">Facebook</a></div>
   </div>
 </footer>
@@ -193,7 +193,7 @@ document.getElementById('paamelding').addEventListener('submit',e=>{
   const f=e.target;
   const g=id=>f.querySelector('#'+id).value||'-';
   const body=
-`PÅMELDING – PW-festivalen 2027
+`PÅMELDING – PW-festivalen 2026
 
 Korps: ${g('korps')}
 Kontaktperson: ${g('kontakt')}
@@ -209,10 +209,8 @@ Festivalkorps: ${g('festivalkorps')}
 
 Kommentar:
 ${g('melding')}`;
-  const subject='Påmelding PW-festivalen 2027 – '+g('korps');
-  const epost=g('epost');
-  const cc = (epost && epost!=='-') ? '&cc='+encodeURIComponent(epost) : '';
-  window.location.href='mailto:pw@tjodalyngskolekorps.no?subject='+encodeURIComponent(subject)+cc+'&body='+encodeURIComponent(body);
+  const subject='Påmelding PW-festivalen 2026 – '+g('korps');
+  window.location.href='mailto:pw@tjodalyngskolekorps.no?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
 });
 </script>
 </body>
